@@ -5,6 +5,7 @@
 
 `default_nettype none
 
+// Blackbox module for my_logo - this will be replaced by the actual macro during synthesis
 (* blackbox *) (* keep *)
 module my_logo ();
 endmodule
@@ -20,8 +21,10 @@ module tt_um_bleeptrack_cc3 (
     input  wire       rst_n     // reset_n - low to reset
 );
 
+`ifndef GL_TEST
   (* keep *)
   my_logo logo();
+`endif
 
   // All output pins must be assigned. If not used, assign to 0.
   assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
